@@ -1,3 +1,5 @@
+require_relative 'printer'
+
 class Operation
 
   attr_reader :date, :account
