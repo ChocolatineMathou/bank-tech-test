@@ -22,6 +22,10 @@ So that I can know if I'm spending too much money,
 I want to print my bank statement.
 
 As a user,
+So that I wouldn't pay interests
+I don't want to have an overdraft on my account.
+
+As a user,
 So that I can read my bank statement easily,
 I want to get the operations in reverse chronological order.
 ```
@@ -31,4 +35,5 @@ I want to get the operations in reverse chronological order.
 ```
 $ git clone git@github.com:ChocolatineMathou/bank-tech-test.git
 $ cd bank-tech-test
+$ bundle install
 ```
