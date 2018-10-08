@@ -10,4 +10,10 @@ describe Operation do
       expect(operation.deposit(20)).to eq(['08/10/2018 || 20 || || 20'])
     end
   end
+
+  describe '#withdraw' do
+    it 'allows a user to withdraw money' do
+      expect(operation.withdraw(30)).to eq(['08/10/2018 || || 30 || 30'])
+    end
+  end
 end

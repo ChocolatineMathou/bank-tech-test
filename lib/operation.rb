@@ -10,4 +10,8 @@ class Operation
   def deposit(amount)
     @account << "#{@date} || #{amount} || || #{amount}"
   end
+
+  def withdraw(amount)
+    @account << "#{@date} || || #{amount} || #{amount}"
+  end
 end
