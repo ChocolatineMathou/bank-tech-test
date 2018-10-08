@@ -8,10 +8,10 @@ class Operation
   end
 
   def deposit(amount)
-    @account << "#{@date} || #{amount} || || #{amount}"
+    @account += [@date, amount, nil, amount]
   end
 
   def withdraw(amount)
-    @account << "#{@date} || || #{amount} || #{amount}"
+    @account += [@date, nil, amount, amount]
   end
 end
