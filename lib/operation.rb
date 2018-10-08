@@ -8,10 +8,10 @@ class Operation
   end
 
   def deposit(amount)
-    @account += [@date, amount, nil, amount]
+    @account += [{date: @date, credit: amount, debit: 0, balance: amount}]
   end
 
   def withdraw(amount)
-    @account += [@date, nil, amount, amount]
+    @account += [{date: @date, credit: 0, debit: amount, balance: amount}]
   end
 end
