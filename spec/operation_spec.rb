@@ -16,6 +16,15 @@ describe Operation do
       expect(operation.deposit(20)).to eq([{ :date => "09/10/2018",
         :credit => 20, :debit => "", :balance => 20.0 }])
     end
+
+    it "updates the balance when you make a deposit" do
+      operation.deposit(400)
+      expect(operation.deposit(60)).to eq([{ :date => "09/10/2018",
+        :credit => 400, :debit => "", :balance => 400.0 },
+        { :date => "09/10/2018", :credit => 60, :debit => "",
+          :balance => 460.0 }])
+
+    end
   end
 
   describe "#withdraw" do
