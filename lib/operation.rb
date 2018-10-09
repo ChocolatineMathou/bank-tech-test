@@ -2,7 +2,7 @@ require_relative "printer"
 
 class Operation
 
-  attr_reader :date, :account, :balance, :printer
+  attr_reader :balance, :printer
 
   def initialize(balance = 0.00, date = Time.new, printer = Printer.new)
     @date = date.strftime("%d/%m/%Y")
@@ -22,7 +22,7 @@ class Operation
   end
 
   def bank_statement
-    print @printer.print_statement(account)
+    print @printer.print_statement(@account)
   end
 
 end
