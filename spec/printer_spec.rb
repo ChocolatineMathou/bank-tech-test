@@ -16,9 +16,8 @@ describe Printer do
 
   describe "#print_statement" do
     it "formates the statement" do
-      statement = "Date || Credit || Debit || Balance\n09/10/2018 ||  || 30.0 || 10.0\n09/10/2018 || 40.0 ||  || 40.0"
-      expect(printer.print_statement(transactions)).to eq(statement)
-      # expect { printer.print_statement(transactions) }.to output(statement).to_stdout
+      statement = "Date || Credit || Debit || Balance\n09/10/2018 ||  || 30.0 || 10.0\n09/10/2018 || 40.0 ||  || 40.0\n"
+      expect { printer.print_statement(transactions) }.to output(statement).to_stdout
     end
   end
 

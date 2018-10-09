@@ -14,7 +14,7 @@ class Printer
     transactions.reverse_each do |transaction|
       @statement << formatter(transaction)
     end
-    p @statement.join("\n")
+    puts @statement.join("\n")
   end
 
   private
