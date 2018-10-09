@@ -1,5 +1,7 @@
 # Bank Tech Test
 
+[![Build Status](https://travis-ci.org/ChocolatineMathou/bank-tech-test.svg?branch=master)](https://travis-ci.org/ChocolatineMathou/bank-tech-test)
+
 ## Intro
 
 This project was made during the tech test week at Makers on week 10.  
