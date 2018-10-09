@@ -2,7 +2,7 @@ require "time"
 
 class Printer
 
-  attr_reader :header, :date, :statement
+  attr_reader :header, :statement
 
   def initialize
     @header = "Date || Credit || Debit || Balance"

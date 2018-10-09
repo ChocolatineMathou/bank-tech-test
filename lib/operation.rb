@@ -20,4 +20,9 @@ class Operation
     @balance -= amount
     @account += [{ date: @date, credit: "", debit: amount, balance: @balance }]
   end
+
+  def bank_statement
+    print @printer.print_statement(account)
+  end
+
 end

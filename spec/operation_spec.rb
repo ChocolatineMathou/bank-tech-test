@@ -2,14 +2,9 @@ require 'operation'
 
 describe Operation do
 
-  let(:operation) { described_class.new(0.00, date) }
+  let(:operation) { described_class.new(0.00, date, printer) }
   let(:date) { Time.new(2018, 10, 9) }
-
-  describe ".new" do
-    it "initializes with a balance equal to zero" do
-      expect(operation.balance).to eq(0)
-    end
-  end
+  let(:printer) { double :printer }
 
   describe "#deposit" do
     it "allows a user to make a deposit" do
@@ -34,6 +29,14 @@ describe Operation do
         :credit => 40, :debit => "", :balance => 40.0 },
         { :date => "09/10/2018", :credit => "", :debit => 30,
           :balance => 10.0 }])
+    end
+  end
+
+  describe "#bank_statement" do
+    it "calls #print_statement from Printer" do
+      statement = []
+      expect(printer).to receive(:print_statement).with(statement)
+      operation.bank_statement
     end
   end
 end

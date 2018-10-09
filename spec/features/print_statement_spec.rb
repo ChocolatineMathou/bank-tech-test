@@ -6,7 +6,7 @@ describe "Feature: print statement" do
     operation.deposit(40)
     operation.withdraw(30)
     operation.deposit(10)
-    operation.printer.print_statement(operation.account)
+    operation.bank_statement
   end
 
   it "prints a readable statement" do
