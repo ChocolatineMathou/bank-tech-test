@@ -2,22 +2,22 @@ require_relative 'printer'
 
 class Operation
 
-  attr_reader :date, :account
+  attr_reader :date, :account, :balance
 
-  def initialize(date = Time.now)
+  def initialize(balance = 0.00, date = Time.new)
     @date = date.strftime('%d/%m/%Y')
     @account = []
+    @balance = balance
   end
 
   def deposit(amount)
-    @account += [{ date: @date, credit: amount, debit: 0, balance: amount }]
+    p @date
+    @balance =+ amount
+    @account += [{ date: @date, credit: amount, debit: "", balance: @balance }]
   end
 
   def withdraw(amount)
-    @account += [{ date: @date, credit: 0, debit: amount, balance: -(amount) }]
-  end
-
-  def balance
-    @account[0][:balance] + @account[1][:balance]
+    @balance =- amount
+    @account += [{ date: @date, credit: "", debit: amount, balance: @balance }]
   end
 end
