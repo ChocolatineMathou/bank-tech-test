@@ -11,13 +11,12 @@ class Operation
   end
 
   def deposit(amount)
-    p @date
-    @balance =+ amount
+    @balance += amount
     @account += [{ date: @date, credit: amount, debit: "", balance: @balance }]
   end
 
   def withdraw(amount)
-    @balance =- amount
+    @balance -= amount
     @account += [{ date: @date, credit: "", debit: amount, balance: @balance }]
   end
 end
