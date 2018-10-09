@@ -1,13 +1,14 @@
-require_relative 'printer'
+require_relative "printer"
 
 class Operation
 
-  attr_reader :date, :account, :balance
+  attr_reader :date, :account, :balance, :printer
 
-  def initialize(balance = 0.00, date = Time.new)
-    @date = date.strftime('%d/%m/%Y')
+  def initialize(balance = 0.00, date = Time.new, printer = Printer.new)
+    @date = date.strftime("%d/%m/%Y")
     @account = []
     @balance = balance
+    @printer = printer
   end
 
   def deposit(amount)

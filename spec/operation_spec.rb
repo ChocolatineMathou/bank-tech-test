@@ -2,7 +2,7 @@ require 'operation'
 
 describe Operation do
 
-  let(:operation) { described_class.new(balance = 0.00, date) }
+  let(:operation) { described_class.new(0.00, date) }
   let(:date) { Time.new(2018, 10, 9) }
 
   describe ".new" do
