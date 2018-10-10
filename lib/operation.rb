@@ -12,11 +12,16 @@ class Operation
   end
 
   def deposit(amount)
+    raise "Cannot make this operation: Amount needs to be a float" if money?(amount)
+    raise "Cannot make this operation: less than 2 decimal digits allowed!" if two_decimals?(amount)
+
     @balance += amount
     @account += [{ date: @date, credit: amount, debit: "", balance: @balance }]
   end
 
   def withdraw(amount)
+    raise "Cannot make this operation: Amount needs to be a float" if money?(amount)
+    raise "Cannot make this operation: less than 2 decimal digits allowed!" if two_decimals?(amount)
     raise "Cannot withdraw: Insufficient funds!" if insufficient_funds?(amount)
 
     @balance -= amount
@@ -33,4 +38,11 @@ class Operation
     @balance < amount
   end
 
+  def two_decimals?(amount)
+    amount != amount.round(2)
+  end
+
+  def money?(amount)
+    amount != amount.to_f
+  end
 end
