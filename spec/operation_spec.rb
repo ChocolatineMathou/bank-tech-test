@@ -22,18 +22,23 @@ describe Operation do
     end
   end
 
-  describe "#withdraw" do
-    it "allows a user to withdraw money" do
-      operation.deposit(40)
-      expect(operation.withdraw(30)).to eq([{ :date => "09/10/2018",
-        :credit => 40, :debit => "", :balance => 40.0 },
-        { :date => "09/10/2018", :credit => "", :debit => 30,
-          :balance => 10.0 }])
+  context "Sufficient funds" do
+    describe "#withdraw" do
+      it "allows a user to withdraw money" do
+        operation.deposit(40)
+        expect(operation.withdraw(30)).to eq([{ :date => "09/10/2018",
+          :credit => 40, :debit => "", :balance => 40.0 },
+          { :date => "09/10/2018", :credit => "", :debit => 30,
+            :balance => 10.0 }])
+      end
     end
+  end
 
-    it "does not allow a user to withdraw more than one has" do
-      operation.deposit(30)
-      expect { operation.withdraw(40) }.to raise_error("Insufficient funds!")
+  context "Insufficient funds" do
+    describe "#withdraw" do
+      it "does not allow a user to withdraw more than one has" do
+        expect { operation.withdraw(40) }.to raise_error("Cannot withdraw: Insufficient funds!")
+      end
     end
   end
 

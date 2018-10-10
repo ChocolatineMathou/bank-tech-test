@@ -17,13 +17,19 @@ class Operation
   end
 
   def withdraw(amount)
-    raise "Insufficient funds!" if @balance < amount
+    raise "Cannot withdraw: Insufficient funds!" if insufficient_funds?(amount)
     @balance -= amount
     @account += [{ date: @date, credit: "", debit: amount, balance: @balance }]
   end
 
   def bank_statement
     print @printer.print_statement(@account)
+  end
+
+  private
+
+  def insufficient_funds?(amount)
+    @balance < amount
   end
 
 end
