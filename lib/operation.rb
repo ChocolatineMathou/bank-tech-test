@@ -18,6 +18,7 @@ class Operation
 
   def withdraw(amount)
     raise "Cannot withdraw: Insufficient funds!" if insufficient_funds?(amount)
+
     @balance -= amount
     @account += [{ date: @date, credit: "", debit: amount, balance: @balance }]
   end
