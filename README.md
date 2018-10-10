@@ -62,7 +62,7 @@ You can interact with this project in your favourite REPL, like Pry, as follows:
 [1] pry(main)> require './lib/operation'
 => true
 [2] pry(main)> operation = Operation.new
-=> #<Operation:0x00007fc90c0caa80 @account=[], @balance=0.0, @date="10/10/2018", @printer=#<Printer:0x00007fc90c0ca7d8 @header="Date || Credit || Debit || Balance", @statement=[]>>
+=> #<Operation:0x00007fcba60d1ac8 @account=[], @balance=0.0, @date="10/10/2018", @printer=#<Printer:0x00007fcba60d1a28 @header="Date || Credit || Debit || Balance", @statement=[]>>
 [3] pry(main)> operation.deposit(300)
 => [{:date=>"10/10/2018", :credit=>300, :debit=>"", :balance=>300.0}]
 [4] pry(main)> operation.withdraw(50)
@@ -72,7 +72,15 @@ Date || Credit || Debit || Balance
 10/10/2018 ||  || 50 || 250.0
 10/10/2018 || 300 ||  || 300.0
 => nil
-[6] pry(main)> operation.withdraw(300)
+[6] pry(main)> operation.deposit("a string")
+RuntimeError: Cannot make this operation: Amount needs to be a float
+[7] pry(main)> operation.withdraw("a string")
+RuntimeError: Cannot make this operation: Amount needs to be a float
+[8] pry(main)> operation.deposit(7.192)
+RuntimeError: Cannot make this operation: less than 2 decimal digits allowed!
+[9] pry(main)> operation.withdraw(7.192)
+RuntimeError: Cannot make this operation: less than 2 decimal digits allowed!
+[10] pry(main)> operation.withdraw(300)
 RuntimeError: Cannot withdraw: Insufficient funds!
 ```
 
