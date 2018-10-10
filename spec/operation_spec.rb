@@ -30,6 +30,11 @@ describe Operation do
         { :date => "09/10/2018", :credit => "", :debit => 30,
           :balance => 10.0 }])
     end
+
+    it "does not allow a user to withdraw more than one has" do
+      operation.deposit(30)
+      expect { operation.withdraw(40) }.to raise_error("Insufficient funds!")
+    end
   end
 
   describe "#bank_statement" do
